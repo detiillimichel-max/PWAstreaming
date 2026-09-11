@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  width: 100%;
+  background-color: #1e1e1e;
+  text-align: center;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+main {
+  width: 100%;
+  max-width: 800px;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.player-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Proporção 16:9 */
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.video-js, #youtube-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.channels-section {
+  width: 100%;
+}
+
+.channels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.channel-btn {
+  background-color: #292929;
+  color: white;
+  border: 1px solid #3f3f3f;
+  padding: 12px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.channel-btn:hover {
+  background-color: #3e3e3e;
+}
+
+.plat-btn {
+  border-color: #ff9800; /* Borda laranja para destacar links externos */
+}
+
+/* Flexbox para alinhar os ícones do Lucide perfeitamente com o texto */
+h1, h3, .channel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; 
+}
+
+h3 {
+  justify-content: flex-start;
+  border-bottom: 1px solid #292929;
+  padding-bottom: 5px;
+  margin-top: 25px;
+}
+
+/* Tamanho controlado para todos os ícones Lucide */
+.lucide {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
