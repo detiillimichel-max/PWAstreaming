@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PWA TV Ao Vivo</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <!-- Video.js CSS para o player de streaming -->
+  <link href="https://zencdn.net" rel="stylesheet" />
+  <!-- Script do Lucide Icons -->
+  <script src="https://unpkg.com"></script>
+</head>
+<body>
+
+  <header>
+    <h1><i data-lucide="tv"></i> Meu PWA TV</h1>
+  </header>
+
+  <main>
+    <!-- Container do Player de Streaming (.m3u8) -->
+    <div id="stream-container" class="player-wrapper">
+      <video id="my-video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="640" height="360"></video>
+    </div>
+
+    <!-- Container para Canais do YouTube (iFrame) -->
+    <div id="youtube-container" class="player-wrapper" style="display: none;">
+      <iframe id="youtube-iframe" width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- Lista Única de Canais Organizada por Categorias -->
+    <section class="channels-section">
+      
+      <h3><i data-lucide="newspaper"></i> Notícias ao Vivo (Assista no App)</h3>
+      <div class="channels-grid">
+        <button class="channel-btn" onclick="playYouTube('live_stream?channel=UCj_mI7_W77of8XvEw9Z9w1A')">
+          <i data-lucide="play-circle"></i> SBT News
+        </button>
+        <button class="channel-btn" onclick="playYouTube('live_stream?channel=UC7sz5mR4w1m6g8w2S0v8s_A')">
+          <i data-lucide="play-circle"></i> CNN Brasil
+        </button>
+        <button class="channel-btn" onclick="playYouTube('live_stream?channel=UCE_m0g_IskFPyXAnG6gO7_Q')">
+          <i data-lucide="play-circle"></i> Jovem Pan News
+        </button>
+        <button class="channel-btn" onclick="playYouTube('live_stream?channel=UC8bL8S3onKAsA-Yw9S4oVbw')">
+          <i data-lucide="play-circle"></i> Record News
+        </button>
+        <button class="channel-btn" onclick="playYouTube('live_stream?channel=UCoa-D_x9cmY3SgghIh6s36g')">
+          <i data-lucide="play-circle"></i> Band Jornalismo
+        </button>
+      </div>
+
+      <h3><i data-lucide="clapperboard"></i> Esportes & Variedades (Assista no App)</h3>
+      <div class="channels-grid" style="margin-top: 15px;">
+        <button class="channel-btn" onclick="playYouTube('live_stream?channel=UC_77rWfDgdZ3D48S9gS824w')">
+          <i data-lucide="trophy"></i> CazéTV (Esportes)
+        </button>
+        <button class="channel-btn" onclick="playYouTube('live_stream?channel=UCbFmG_W_C16M7Fm_Z8T7-fA')">
+          <i data-lucide="mic"></i> Podpah
+        </button>
+        <button class="channel-btn" onclick="playStream('https://akamaized.net')">
+          <i data-lucide="globe"></i> TV Brasil
+        </button>
+        <button class="channel-btn" onclick="playStream('https://tvcultura.com.br')">
+          <i data-lucide="sparkles"></i> TV Cultura
+        </button>
+      </div>
+
+      <h3><i data-lucide="external-link"></i> Grandes Plataformas (Acesso Externo Direto)</h3>
+      <div class="channels-grid" style="margin-top: 15px;">
+        <button class="channel-btn plat-btn" onclick="window.open('https://pluto.tv', '_blank')">
+          <i data-lucide="popcorn"></i> Abrir Pluto TV
+        </button>
+        <button class="channel-btn plat-btn" onclick="window.open('https://plex.tv', '_blank')">
+          <i data-lucide="film"></i> Abrir Plex TV
+        </button>
+        <button class="channel-btn plat-btn" onclick="window.open('https://globo.com', '_blank')">
+          <i data-lucide="tv-2"></i> Globo ao Vivo
+        </button>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Scripts Necessários -->
+  <script src="https://zencdn.net"></script>
+  <script src="app.js"></script>
+  
+  <!-- Inicializa os ícones do Lucide na tela -->
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
